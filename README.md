@@ -13,3 +13,4 @@ To show a 3d object use the shortcode [model-viewer] on your wordpress pages or 
 * width
 * aspect-ratio (https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio)
 * border
+* disable-zoom (empty argument)
