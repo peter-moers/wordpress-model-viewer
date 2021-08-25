@@ -8,12 +8,24 @@
  * Author URI: https://papamaakthetwel.be
  */
 
+if (!function_exists('normalize_empty_atts')) {
+    function normalize_empty_atts ($atts) {
+        foreach ($atts as $attribute => $value) {
+            if (is_int($attribute)) {
+                $atts[strtolower($value)] = true;
+                unset($atts[$attribute]);
+            }
+        }
+        return $atts;
+    }
+}
+
+
 function papa_model_viewer($atts) {
 
     static $papa_model_viewer_count=0;
     
-
-    $atts = array_change_key_case( (array) $atts, CASE_LOWER );
+    $atts = normalize_empty_atts($atts);
  
     $src = $atts['src'];
     $alt = $atts['alt']?$atts['alt']:"Model Viewer";
@@ -52,7 +64,9 @@ function papa_model_viewer($atts) {
     $content .= "ar ar-modes=\"webxr scene-viewer quick-look\" ";
     $content .= "environment-image=\"neutral\" ";
     $content .= "auto-rotate camera-controls ";
-
+    if($atts['disable-zoom']) {
+        $content .= "disable-zoom ";
+    }
 
     if($atts['exposure']) {
         $content .= "exposure=\"".$atts['exposure']."\" ";
