@@ -4,6 +4,8 @@ Wordpress plugin for displaying 3D objects (glb) on WordPress pages and posts.
 The plugin is a simple integration of https://modelviewer.dev/
 
 # Usage
+Dutch instructions: https://papamaakthetwel.be/nerdzone/3d-objecten-gebruiken-in-wordpress/
+
 To show a 3d object use the shortcode [model-viewer] on your wordpress pages or posts.
 
 ## Arguments
