@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Model Viewer
- * Plugin URI: https://papamaakthetwel.be
+ * Plugin URI: https://papamaakthetwel.be/nerdzone/3d-objecten-gebruiken-in-wordpress/
  * Description: Use modelviewer to show 3D objects on you website
  * Version: 1.0
  * Author: Peter Moers
