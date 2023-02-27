@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name: Model Viewer
- * Plugin URI: https://papamaakthetwel.be/nerdzone/3d-objecten-gebruiken-in-wordpress/
+ * Plugin URI: https://papamaakthetwel.be
  * Description: Use modelviewer to show 3D objects on you website
- * Version: 1.0
+ * Version: 1.1
  * Author: Peter Moers
  * Author URI: https://papamaakthetwel.be
  */
@@ -47,8 +47,8 @@ function papa_model_viewer($atts) {
     if($atts['height']) {
         $content .= "height:".$atts['height'].";";
     }
-    if($atts['aspect-ratio']) {
-        $content .= "aspect-ratio:".$atts['aspect-ratio'].";";
+    if($atts['aspect_ratio']) {
+        $content .= "aspect-ratio:".$atts['aspect_ratio'].";";
     }
     if($atts['border']) {
         $content .= "border:".$atts['border'].";";
@@ -88,5 +88,16 @@ function papa_model_viewer($atts) {
 }
 
 add_shortcode('model-viewer', 'papa_model_viewer');
+
+
+/**
+ * Add custom mime type
+ */
+add_filter( 'upload_mimes', 'glb_custom_mime_types' );
+function glb_custom_mime_types( $mimes ) {
+    //$mimes['glb'] = 'model/gltf-binary';
+    $mimes['glb'] = 'application/octet-stream';
+    return $mimes;
+}
 
 ?>
